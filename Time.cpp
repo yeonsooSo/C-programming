@@ -6,22 +6,47 @@
 
 using namespace std;
 
+Time::Time(int hour, int minute, int second) {
+	setTime(hour, minute, second);
+}
 void Time::setTime(int h, int m, int s) {
-	if ((h >= 0 && h < 24) && (m >= 0 && m < 60) && (s >= 0 && s < 60)) {
+	setHour(h);
+	setMinute(m);
+	setSecond(s); //ì½”ë“œ ë°˜ë³µí•˜ì§€ ë§ê³  ë‹¤ë¥¸ ë©¤ë²„í•¨ìˆ˜ í˜¸ì¶œë¡œ!
+}
+void Time::setHour(int h) {
+	if (h >= 0 && h < 24) {
 		hour = h;
+	}
+	else {
+		throw invalid_argument("hour must be 0-23");
+	}
+}
+void Time::setMinute(int m) {
+	if (m >= 0 && m < 60) {
 		minute = m;
+	} 
+	else {
+		throw invalid_argument("minute must be 0-59");
+	}
+}
+void Time::setSecond(int s) {
+	if (s >= 0 && s < 60) {
 		second = s;
 	}
 	else {
-		throw invalid_argument
-		("hour, minute and/or second was out of range");
+		throw invalid_argument("second must be 0-59");
 	}
 }
+unsigned int Time::getHour() const { return hour; }
+unsigned int Time::getMinute() const { return minute; }
+unsigned int Time::getSecond() const { return second; }
+
 string Time::toUniversalString() const {
 	ostringstream output;
 	output << setfill('0') << setw(2) << hour << ":"
 		<< setw(2) << minute << ":" << setw(2) << second;
-	return output.str(); //voidÇÏ°í cout¾²´Â ´ë½Å output¿¡ ´ã¾Æ³ù´Ù°¡ ±×´ë·Î ¸®ÅÏÇÑ´Ù.!
+	return output.str(); //voidí•˜ê³  coutì“°ëŠ” ëŒ€ì‹  outputì— ë‹´ì•„ë†¨ë‹¤ê°€ ê·¸ëŒ€ë¡œ ë¦¬í„´í•œë‹¤.!
 }
 string Time::toStandardString() const {
 	ostringstream output;
@@ -30,4 +55,3 @@ string Time::toStandardString() const {
 		<< setw(2) << second << ((hour < 12) ? " AM" : " PM");
 	return output.str();
 }
-
