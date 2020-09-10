@@ -9,22 +9,17 @@ void displayTime(const string& message, const Time& time) {
 }
 
 int main() {
-	Time t;
+	Time t1;
+	Time t2{ 2 };
 
-	displayTime("Initial Time", t);
-
-	t.setTime(22, 1, 10);
-	displayTime("After setTime", t);
+	displayTime("Default Time", t1);
+	displayTime("hour specified", t2);
 
 	try {
-		t.setTime(99, 99, 100); //Time.cpp ÆÄÀÏ¿¡¼­ ´øÁø ¿À·ù ¹ß»ı
+		t2.setTime(99, 99, 100); //Time.cpp íŒŒì¼ì—ì„œ ë˜ì§„ ì˜¤ë¥˜ ë°œìƒ
 	}
 	catch (invalid_argument& e) {
 		cout << "Exception: " << e.what() << "\n\n";
 	}
-
-
 	return 0;
-
-
 }
