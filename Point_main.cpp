@@ -1,5 +1,6 @@
 #include "Point.h"
-//try catch! Àß¸øµÈ ¹üÀ§ µé¾î¿À¸é ¸Þ½ÃÁö Ãâ·ÂÇÏ°í ÁÂÇ¥ ´Ù½Ã ¹Þ±â
+//try catch! ìž˜ëª»ëœ ë²”ìœ„ ë“¤ì–´ì˜¤ë©´ ë©”ì‹œì§€ ì¶œë ¥í•˜ê³  ì¢Œí‘œ ë‹¤ì‹œ ë°›ê¸°
+
 
 using namespace std;
 
