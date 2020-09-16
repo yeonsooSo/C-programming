@@ -28,7 +28,7 @@ int main() {
 	//display
 	cout << endl;
 	for (int i{ 0 }; i < n; i++) {
-		Point pRef = p[i];
+		Point& pRef = p[i];
 		cout << pRef.toString(); // 각 개체의 레퍼런스로 함수호출
 	}
 	return 0;
