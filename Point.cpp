@@ -2,7 +2,7 @@
 #include <sstream>
 #include <iomanip>
 using namespace std;
-
+ 
 string Point::toString() {
 	ostringstream out;
 	out << "x = " << setfill('0') << setw(2)<< x << ", " 
@@ -11,5 +11,5 @@ string Point::toString() {
 }
 void Point::setPoint(int xx, int yy) {
 	x = xx;
-	y = yy;
+	y = yy; 
 }
