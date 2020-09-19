@@ -17,28 +17,27 @@ class Phone {
 public:
 	Phone(string n) { cout << "Phone constructor!" << endl; }
 
-	Phone(Phone&) { cout << "auto!" << endl; }//ÀÚµ¿À¸·Î ¸¸µé¾îÁ³´ø »ý¼ºÀÚ.
-	//º¹»ç»ý¼ºÀÚ
+	Phone(Phone&) { cout << "Phone copy constructor!" << endl; }//ìžë™ìœ¼ë¡œ ë§Œë“¤ì–´ì¡Œë˜ ìƒì„±ìž
+	//ë³µì‚¬ìƒì„±ìž
 
 	~Phone() { cout << "Phone destuctor!" << endl; }
 private:
 	string _name;
-
 };
 
 class Person {
 public:
-	Person(string n, Phone p) : _name{ n }, _phone{ p }
+	Person(string n, Phone& p) : _name{ n }, _phone{ p }
 	{cout << "Person constructor!" << endl; }
-	~Person() { cout << "PErson destuctor!" << endl; }
+	~Person() { cout << "Person destuctor!" << endl; }
 private:
 	string _name;
 	const Phone _phone; //Phone(Phone&)
 };
 
 int main() {
-	Phone ip{ "iphone 11" }; //string Å¸ÀÔ ¹Þ´Â Phone Å¸ÀÔ
-	Person psn{ "iu",ip };
+	Phone ip{ "iphone 11" };
+	Person psn{ "iu", ip };
 
 	return 0;
 }
