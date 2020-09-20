@@ -5,9 +5,7 @@ Person c
 Person d
 Phone d
 Phone d
-
 */
-
 
 #include <iostream>
 #include <string>
